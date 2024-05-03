@@ -39,7 +39,13 @@
     }
     </script>
 @endsection
-
+@section('meta')
+<meta property="og:title" content="{{$wiki->name}}" />
+<meta property="og:description" content="{{ $wiki->description ?? '' }}" />
+<meta property="og:image" content="{{$service->getFirstMediaUrl('wikis','large') ?? ''}}" />
+<meta property="og:url" content="{{url()->current()}}" />
+<meta property="og:type" content="website" />
+@endsection
     
     @include('starterkid-frontend::footer',['services' => $services])
 </div>
