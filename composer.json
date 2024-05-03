@@ -1,0 +1,36 @@
+{
+    "name": "grass-feria/starterkid-wiki",
+    "description": "Tester for starterkid",
+    "homepage":"https://google.com",
+    "license": "MIT",
+    "authors": [
+      {
+        "name": "David Grass Feria",
+        "email": "kontakt@david-grass-feria.de"
+      }
+    ],
+   
+    "autoload": {
+      
+      "psr-4": {
+        "GrassFeria\\StarterkidWiki\\": "src",
+        "GrassFeria\\StarterkidWiki\\Database\\Factories\\": "database/factories/",
+        "GrassFeria\\StarterkidWiki\\Database\\Migrations\\": "database/migrations/",
+        "GrassFeria\\StarterkidWiki\\Database\\Seeders\\": "database/seeders/"
+      }
+    },
+    
+    "extra": {
+      "laravel": {
+        "providers": [
+          "GrassFeria\\StarterkidWiki\\Providers\\AppServiceProvider"
+        ]
+        
+      }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+      "grass-feria/starterkid": "dev-main"
+  }
+  }
