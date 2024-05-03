@@ -23,7 +23,21 @@
 
 
 @section('schema')
-
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "{{$wiki->name}}",
+      "description": "{{$wiki->description}}",
+      "publisher": {
+        "@type": "EducationalOrganization",
+        "name": "{{config('app.name')}}",
+        "url": "{{url()->current()}}"
+      },
+      "inLanguage": "de-DE",
+      "lastReviewed": "{{$wiki->getPublished()}}"
+    }
+    </script>
 @endsection
 
     
