@@ -30,6 +30,7 @@
             <x-starterkid::starterkid.th></x-starterkid::starterkid.th>
             <x-starterkid::starterkid.th>{{__('ID')}}</x-starterkid::starterkid.th>
             <x-starterkid::starterkid.th>{{__('Name')}}</x-starterkid::starterkid.th>
+            <x-starterkid::starterkid.th>{{__('Keyword')}}</x-starterkid::starterkid.th>
             <x-starterkid::starterkid.th>{{__('Published')}}</x-starterkid::starterkid.th>
             <x-starterkid::starterkid.th>{{__('View')}}</x-starterkid::starterkid.th>
             <x-starterkid::starterkid.th>{{__('Status')}}</x-starterkid::starterkid.th>
@@ -46,6 +47,7 @@
                 @endcan
                 </x-starterkid::starterkid.td>
                 <x-starterkid::starterkid.td>{{$wiki->id}}</x-starterkid::starterkid.td>
+                <x-starterkid::starterkid.td>{{$wiki->focus_keyword}}</x-starterkid::starterkid.td>
                 <x-starterkid::starterkid.td>{{$wiki->name}}</x-starterkid::starterkid.td>
                 <x-starterkid::starterkid.td>{{$wiki->getPublished()}}</x-starterkid::starterkid.td>
                 <x-starterkid::starterkid.td>

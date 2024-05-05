@@ -40,7 +40,7 @@ class WikiIndex extends Component
 
       
         $wikis = \GrassFeria\StarterkidWiki\Models\Wiki::query()
-        ->select('id','user_id','name','created_at','status','slug')
+        ->select('id','user_id','name','created_at','status','slug','focus_keyword')
         ->where('id','like','%'.$this->search.'%')
         ->orWhere('name','like','%'.$this->search.'%')
         ->orderBy($this->orderBy, $this->sort)
