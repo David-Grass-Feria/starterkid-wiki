@@ -21,6 +21,7 @@ class WikiCreate extends Component
     public $slug;
     public $description;
     public $focus_keyword;
+    public $public_files = [];
     
     
 
@@ -77,11 +78,11 @@ class WikiCreate extends Component
         $validated = array_merge($validated, ['user_id' => auth()->user()->id]);
         $this->wiki = \GrassFeria\StarterkidWiki\Models\Wiki::create($validated);
         
-        //if ($this->public_photos !== []) {
-        //\GrassFeria\Starterkid\Jobs\SpatieMediaLibary\DeleteMediaCollection::dispatch($this->wiki,'avatars');
-        //(new \GrassFeria\Starterkid\Services\SpatieMediaLibary\SaveMediaWithFilenameService($this->public_photos,$this->wiki,'photos','public','my-new-filename'));
+        if ($this->public_files !== []) {
+        \GrassFeria\Starterkid\Jobs\SpatieMediaLibary\DeleteMediaCollection::dispatch($this->wiki,'files');
+        (new \GrassFeria\Starterkid\Services\SpatieMediaLibary\SaveMediaWithFilenameService($this->public_files,$this->wiki,'files','public',$this->title));
         //(new \GrassFeria\Starterkid\Services\SpatieMediaLibary\SaveMediaService($this->public_photos, $this->wiki, 'photos', 'public'));
-        //}
+        }
         
         (new \GrassFeria\Starterkid\Services\CheckCkEditorContent($this->wiki->content,'content'))->checkForCkEditorImages($this->wiki,'images','ckimage');
         return redirect()->route('wikis.index')->with('success', __('Wiki created'));

@@ -22,6 +22,12 @@
                 {!!$wiki->content!!}
                 </x-starterkid::starterkid.form.ckeditor5>
 
+                <x-starterkid::starterkid.form.file multiple wire:model="public_files" for="public_files" id="public_files" label="{{__('Files')}}" maxFileSize="{{config('starterkid.max_file_size_mb')}}MB" maxTotalFileSize="{{config('starterkid.max_file_size_mb')}}MB">
+                        <x-slot name="acceptedFileTypes">
+                        'application/*'
+                        </x-slot>
+                        </x-starterkid::starterkid.form.file>
+                        <livewire-starterkid::show-file key="public_files_{{$wiki->id}}" :record="$wiki" collection="files" divClass="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-1 mt-5 mb-5" imgClass="h-32" enableFileDelete />
 
                 <x-starterkid::starterkid.form.datetime wire:model="created_at" for="created_at" id="created_at" label="{{__('Published')}}" required />
                 <x-starterkid::starterkid.form.checkbox for="status" id="status" label="{{__('Status')}}">

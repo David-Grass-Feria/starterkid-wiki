@@ -21,6 +21,7 @@ class WikiEdit extends Component
     public $slug;
     public $description;
     public $focus_keyword;
+    public $public_files = [];
     
     
 
@@ -89,6 +90,12 @@ class WikiEdit extends Component
         //(new \GrassFeria\Starterkid\Services\SpatieMediaLibary\SaveMediaWithFilenameService($this->public_photos,$this->wiki,'photos','public','my-new-filename'));
         //(new \GrassFeria\Starterkid\Services\SpatieMediaLibary\SaveMediaService($this->public_photos, $this->wiki, 'photos', 'public'));
         //}
+
+        if ($this->public_files !== []) {
+            \GrassFeria\Starterkid\Jobs\SpatieMediaLibary\DeleteMediaCollection::dispatch($this->wiki,'files');
+            (new \GrassFeria\Starterkid\Services\SpatieMediaLibary\SaveMediaWithFilenameService($this->public_files,$this->wiki,'files','public',$this->title));
+            //(new \GrassFeria\Starterkid\Services\SpatieMediaLibary\SaveMediaService($this->public_photos, $this->wiki, 'photos', 'public'));
+            }
         
         (new \GrassFeria\Starterkid\Services\CheckCkEditorContent($this->wiki->content,'content'))->checkForCkEditorImages($this->wiki,'images','ckimage');
         return redirect()->route('wikis.index')->with('success', __('Wiki updated'));

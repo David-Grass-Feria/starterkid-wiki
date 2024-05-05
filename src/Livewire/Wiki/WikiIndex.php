@@ -24,7 +24,8 @@ class WikiIndex extends Component
         foreach ($this->selected as $recordId) {
             $findRecord = \GrassFeria\StarterkidWiki\Models\Wiki::find($recordId);
             $this->authorize('delete',[\GrassFeria\StarterkidWiki\Models\Wiki::class,$findRecord]);
-            \GrassFeria\Starterkid\Jobs\SpatieMediaLibary\DeleteMediaCollection::dispatch($findRecord,'wikis');
+            \GrassFeria\Starterkid\Jobs\SpatieMediaLibary\DeleteMediaCollection::dispatch($findRecord,'ckimages');
+            \GrassFeria\Starterkid\Jobs\SpatieMediaLibary\DeleteMediaCollection::dispatch($findRecord,'files');
             $findRecord->delete();
 
         }
