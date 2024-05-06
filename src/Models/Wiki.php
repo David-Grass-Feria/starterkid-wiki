@@ -106,8 +106,16 @@ class Wiki extends Model implements HasMedia
                     
             });
         }
+
+        if ($orderBy) {
+            if ($orderBy === 'slug') {
+                $query->orderByRaw("LENGTH(slug) ASC, slug {$sort}");
+            } else {
+                $query->orderBy($orderBy, $sort);
+            }
+        }
     
-        $query->orderBy($orderBy, $sort);
+        //$query->orderBy($orderBy, $sort);
     
         return $query;
     }

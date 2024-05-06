@@ -27,7 +27,8 @@ class FrontWikiIndex extends Component
     public function render()
     {
      
-      $wikis = \GrassFeria\StarterkidWiki\Models\Wiki::frontGetWikiWhereStatusIsOnline($this->search,$this->orderBy, $this->sort)->get();
+      //$wikis = \GrassFeria\StarterkidWiki\Models\Wiki::frontGetWikiWhereStatusIsOnline($this->search,$this->orderBy, $this->sort)->get();
+      $wikis = \GrassFeria\StarterkidWiki\Models\Wiki::frontGetWikiWhereStatusIsOnline($this->search, 'slug', 'asc')->get();
       $services = \GrassFeria\StarterkidService\Models\Service::frontGetServicesWhereStatusIsOnline($this->search,$this->orderBy, $this->sort)->get();
       return view('starterkid-wiki::livewire.front.wiki.front-wiki-index',['services' => $services,'wikis' => $wikis]);
 
