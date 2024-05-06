@@ -27,7 +27,7 @@
             imgAlt="{{$wiki->name}}"
             href="{{route('front.wiki.show',$wiki->slug)}}"
             hrefTitle="{{$wiki->focus_keyword}}"
-            heading="{{$wiki->name}}"
+            heading="{{$wiki->focus_keyword}}"
             preview="{!!Str::limit($wiki->description,200)!!}"
             />
             
