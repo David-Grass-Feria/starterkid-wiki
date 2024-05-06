@@ -1,4 +1,4 @@
-<x-slot:title>{{$wiki->name}}</x-slot>
+<x-slot:title>{{$wiki->title}}</x-slot>
 <x-slot:robots>index, follow</x-slot>
 <x-slot:description>{{$wiki->description}}</x-slot>
 
