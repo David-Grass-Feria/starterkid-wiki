@@ -16,7 +16,7 @@
     <x-starterkid-frontend::body-content heading="{{$wiki->name}}" content="{!!$wiki->content!!}" imgSrc="{{$wiki->getFirstMediaUrl('images','large')}}" imgAlt="{{$wiki->name}}" imageCredits="{{$wiki->image_credits}}" />
       
     
-    <h3>{{__('Available files for download.')}}</h3>
+    
     <livewire-starterkid::show-file key="public_files_{{$wiki->id}}" :record="$wiki" collection="files" divClass="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-1 mt-5 mb-5" imgClass="h-32" />
     
       
