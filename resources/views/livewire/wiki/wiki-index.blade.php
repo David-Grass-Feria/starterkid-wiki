@@ -47,8 +47,8 @@
                 @endcan
                 </x-starterkid::starterkid.td>
                 <x-starterkid::starterkid.td>{{$wiki->id}}</x-starterkid::starterkid.td>
-                <x-starterkid::starterkid.td>{{$wiki->slug}}</x-starterkid::starterkid.td>
                 <x-starterkid::starterkid.td>{{$wiki->name}}</x-starterkid::starterkid.td>
+                <x-starterkid::starterkid.td>{{$wiki->slug}}</x-starterkid::starterkid.td>
                 <x-starterkid::starterkid.td>{{$wiki->getPublished()}}</x-starterkid::starterkid.td>
                 <x-starterkid::starterkid.td>
                     @if($wiki->status === true)
