@@ -38,11 +38,7 @@ class WikiCreate extends Component
         
     }
 
-    public function updated($name)
-    {
-        $this->slug = Str::slug($this->name);
-        $this->title = ucfirst($this->name);
-    }
+    
 
     public function save()
     {
