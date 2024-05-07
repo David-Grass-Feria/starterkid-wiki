@@ -18,7 +18,7 @@ class WikiEdit extends Component
     public $content;
     public $created_at;
     public $status = true;
-    public $slug;
+  
     public $description;
     public $focus_keyword;
     public $public_files = [];
@@ -40,7 +40,6 @@ class WikiEdit extends Component
         $this->description                      = $this->wiki->description;
         $this->created_at                       = $this->wiki->created_at->format(config('starterkid.time_format.date_time_format_for_picker'));
         $this->status                           = $this->wiki->status;
-        $this->slug                             = $this->wiki->slug;
         $this->focus_keyword                    = $this->wiki->focus_keyword;
         //$this->date                                 = $this->wiki->date->format(config('starterkid.time_format.date_format_for_picker'));
         //$this->date_time                            = $this->wiki->date_time->format(config('starterkid.time_format.date_time_format_for_picker'));
@@ -55,7 +54,6 @@ class WikiEdit extends Component
 
         $validated = $this->validate([
             'name'                      => 'required|string',
-            'slug'                      => ['required', 'string', Rule::unique('wikis')->ignore($this->wiki->id)],
             'title'                     => 'required|string',
             'content'                   => 'required|string',
             'description'               => 'required|string',

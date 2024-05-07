@@ -31,7 +31,6 @@
             <x-starterkid::starterkid.th>{{__('ID')}}</x-starterkid::starterkid.th>
             <x-starterkid::starterkid.th>{{__('Name')}}</x-starterkid::starterkid.th>
             <x-starterkid::starterkid.th>{{__('Slug')}}</x-starterkid::starterkid.th>
-            <x-starterkid::starterkid.th>{{__('Published')}}</x-starterkid::starterkid.th>
             <x-starterkid::starterkid.th>{{__('View')}}</x-starterkid::starterkid.th>
             <x-starterkid::starterkid.th>{{__('Status')}}</x-starterkid::starterkid.th>
             
@@ -49,7 +48,6 @@
                 <x-starterkid::starterkid.td>{{$wiki->id}}</x-starterkid::starterkid.td>
                 <x-starterkid::starterkid.td>{{$wiki->name}}</x-starterkid::starterkid.td>
                 <x-starterkid::starterkid.td>{{$wiki->slug}}</x-starterkid::starterkid.td>
-                <x-starterkid::starterkid.td>{{$wiki->getPublished()}}</x-starterkid::starterkid.td>
                 <x-starterkid::starterkid.td>
                     @if($wiki->status === true)
                     <a target="_blank" href="{{route('front.wiki.show',$wiki->slug)}}" title="{{$wiki->name}}">
